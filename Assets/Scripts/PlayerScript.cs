@@ -22,6 +22,12 @@ public class PlayerScript : MonoBehaviour
 
     private Vector3 currentPosition;
 
+    [SerializeField] private bool hasTwoGuns;
+    [SerializeField] private bool useRightGun = false;
+    [SerializeField] private Vector3 bulletSpawn;
+    [SerializeField] private Vector3 secondaryBulletSpawn;
+    private Vector3 selectedBulletSpawn;
+
 
     private void Awake()
     {
@@ -40,6 +46,14 @@ public class PlayerScript : MonoBehaviour
         shipRigidbody = GetComponent<Rigidbody>();
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            Shoot();
+        }
+    }
+
     private void FixedUpdate()
     {
         Movement();
@@ -51,5 +65,38 @@ public class PlayerScript : MonoBehaviour
         currentPosition.x = Mathf.Clamp(currentPosition.x + (Input.GetAxis("Horizontal")) * shipSpeed * Time.deltaTime, leftBarrier, rightBarrier);
 
         shipRigidbody.MovePosition(currentPosition);
+    }
+
+    private void Shoot()
+    {
+        if (hasTwoGuns == true)
+        {
+            if (useRightGun)
+            {
+                selectedBulletSpawn = bulletSpawn;
+            }
+            else
+            {
+                selectedBulletSpawn = secondaryBulletSpawn;
+            }
+
+            useRightGun = !useRightGun;
+        }
+        else
+        {
+            selectedBulletSpawn = bulletSpawn;
+        }
+
+        GameObject createdBullet = Instantiate(bulletPrefab, transform.position + selectedBulletSpawn, Quaternion.identity);
+        createdBullet.GetComponent<BulletScript>().currentBulletSpeed = bulletSpeed;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(transform.position + bulletSpawn, new Vector3(0.1f, 0.1f, 0.1f));
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawCube(transform.position + secondaryBulletSpawn, new Vector3(0.1f, 0.1f, 0.1f));
     }
 }
