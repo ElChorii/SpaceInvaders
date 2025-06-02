@@ -91,5 +91,100 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1485f341029de0547bb11338eaef3b74,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4551729530066830152}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1485f341029de0547bb11338eaef3b74,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4339668574579608822}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1485f341029de0547bb11338eaef3b74,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3965939653549920846}
   m_SourcePrefab: {fileID: 100100000, guid: 1485f341029de0547bb11338eaef3b74, type: 3}
+--- !u!1 &7255606239424633464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1485f341029de0547bb11338eaef3b74,
+    type: 3}
+  m_PrefabInstance: {fileID: 7525654337063642921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4551729530066830152
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7255606239424633464}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.009506651
+  m_Height: 0.004096341
+  m_Direction: 1
+  m_Center: {x: 0.0000012149103, y: 0.0020481704, z: -0.0000045597562}
+--- !u!54 &4339668574579608822
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7255606239424633464}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-3965939653549920846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7255606239424633464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034ee5860d0e01a459e0b50726b8e801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipSpeed: 4
+  shootCooldown: 0
+  bulletSpeed: 6
+  canPlayerMove: 0
+  canShoot: 0
+  canSuperShoot: 0
+  leftBarrier: -8
+  rightBarrier: 8
+  bulletPrefab: {fileID: 6868379902626366008, guid: 2aa7fa510238a0c479f5651d05d5b6ba,
+    type: 3}
+  superBulletPrefab: {fileID: 0}
+  hasTwoGuns: 1
+  useRightGun: 0
+  bulletSpawn: {x: -0.65, y: 0.4, z: -0.1}
+  secondaryBulletSpawn: {x: 0.65, y: 0.4, z: -0.1}

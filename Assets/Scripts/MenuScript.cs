@@ -10,6 +10,12 @@ public class MenuScript : MonoBehaviour
     [HideInInspector] public GameObject currentSpaceship;
     [HideInInspector] public string currentSpaceshipDEBUG;
 
+    [SerializeField] private GameObject[] allSpaceShips;
+
+    [SerializeField] private Vector3 playerSelectorSpawnPos;
+
+    [SerializeField] private GameObject startMenuCanvas;
+
 
     private void Awake()
     {
@@ -27,8 +33,11 @@ public class MenuScript : MonoBehaviour
 
     public void StartGame()
     {
-        //Ship Selector
-        
+        int randomShipID = Random.Range(0, allSpaceShips.Length);
+
+        Instantiate(allSpaceShips[randomShipID], playerSelectorSpawnPos, allSpaceShips[randomShipID].transform.rotation);
+
+        startMenuCanvas.SetActive(false);
     }
 
     public void LoadScene(GameObject selectedSpaceship)

@@ -10,6 +10,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float shootCooldown;
     [SerializeField] private float bulletSpeed;
 
+    [HideInInspector] public bool canPlayerMove;
+
     [HideInInspector] public bool canShoot = true;
     [HideInInspector] public bool canSuperShoot = true;
 
@@ -44,6 +46,8 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         shipRigidbody = GetComponent<Rigidbody>();
+
+        canPlayerMove = true;
     }
 
     private void Update()
@@ -56,7 +60,10 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Movement();
+        if (canPlayerMove) 
+        {
+            Movement();
+        }
     }
 
     private void Movement()
